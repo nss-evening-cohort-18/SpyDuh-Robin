@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SpyDuh_Robin.Interfaces;
+using SpyDuh_Robin.Models;
 using SpyDuh_Robin.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -33,7 +34,7 @@ namespace SpyDuh_Robin.Controllers
 
         // POST api/<SpyController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Spy spy)
         {
         }
 
