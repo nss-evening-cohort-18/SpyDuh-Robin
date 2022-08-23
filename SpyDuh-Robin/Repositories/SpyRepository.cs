@@ -1,8 +1,9 @@
-﻿using SpyDuh_Robin.Models;
+﻿using SpyDuh_Robin.Interfaces;
+using SpyDuh_Robin.Models;
 
 namespace SpyDuh_Robin.Repositories
 {
-    public class SpyRepository
+    public class SpyRepository : ISpyRepository
     {
         private static List<Spy> _spies = new List<Spy>()
         {
@@ -12,5 +13,7 @@ namespace SpyDuh_Robin.Repositories
             new Spy(4, "James Bond", new (){"intelligence", "hiding", "accuracy", "bartending"}, new(){"assassination", "womanizer", "espionage", "blackmail"}, new(){5}, new(){1, 2, 3}, "MI-6", "Abduct and Impersonate the Leader of the Free World", new DateOnly(2023, 1, 1 )),
             new Spy(5, "Sirius Black", new (){"transfiguration", "spell casting", "defense against the dark arts", "stealth"}, new(){"espionage", "intimidation", "tracking", "blackmail"}, new(){4}, new(){1, 2, 3}, "The Order of the Phoenix", "Steal the Sword of Gryffindor from Bellatrix LeStrange", new DateOnly(2022, 10, 31 ))
         };
+
+
     }
 }
