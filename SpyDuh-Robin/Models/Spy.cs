@@ -10,9 +10,9 @@
         public List<int> Enemies { get; set; }
         public string AgencyName { get; set; }
         public string Assignment { get; set; }
-        public DateOnly AssignmentDueDate { get; set; }
+        public DateTime AssignmentDueDate { get; set; }
 
-        public Spy(int id, string name, List<string> skills, List<string> services, List<int> friends, List<int> enemies, string agencyName, string assignment, DateOnly assignmentDueDate)
+        public Spy(int id, string name, List<string> skills, List<string> services, List<int> friends, List<int> enemies, string agencyName, string assignment, DateTime assignmentDueDate)
         {
             Id = id;
             Name = name;
@@ -24,5 +24,6 @@
             Assignment = assignment;
             AssignmentDueDate = assignmentDueDate;
         }
+        
     }
 }
