@@ -5,5 +5,7 @@ namespace SpyDuh_Robin.Interfaces
     public interface ISpyRepository
     {
         void Post(Spy spy);
+
+        List<Spy> GetAll();
     }
 }
