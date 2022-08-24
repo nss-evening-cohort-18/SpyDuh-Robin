@@ -32,10 +32,16 @@ namespace SpyDuh_Robin.Controllers
             return _spy.GetBySkill(skill);
         }
 
-        [HttpGet("spy/{friend}")]
+        [HttpGet("friend/{friend}")]
         public List<Spy> GetByFriends(int friend)
         {
             return _spy.GetByFriend(friend);
+        }
+
+        [HttpGet("enemy/{enemy}")]
+        public List<Spy> GetByEnemy(int enemy)
+        {
+            return _spy.GetByEnemy(enemy);
         }
 
         // POST api/<SpyController>
