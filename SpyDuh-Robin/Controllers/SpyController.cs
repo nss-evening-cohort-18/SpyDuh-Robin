@@ -40,9 +40,16 @@ namespace SpyDuh_Robin.Controllers
         }
 
         // PUT api/<SpyController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("skill/{id}")]
+        public void AddSkill(int id, [FromBody] List<string> value)
         {
+            _spy.AddSkill(id, value);
+        }
+
+        [HttpPut("service/{id}")]
+        public void AddService(int id, [FromBody] List<string> value)
+        {
+            _spy.AddService(id, value);
         }
 
         // DELETE api/<SpyController>/5

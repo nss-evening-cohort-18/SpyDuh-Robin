@@ -27,8 +27,24 @@ namespace SpyDuh_Robin.Repositories
         public List<Spy> GetBySkill(string skill)
         {
             return _spies.Where(spySkill => spySkill.Skills.Contains(skill)).ToList();
-            
-            }
+
         }
+
+        public void AddService(int id, List<string> value)
+        {
+            var index = _spies.IndexOf(_spies.FirstOrDefault(u => u.Id == id));
+            _spies[index].Services.AddRange(value);
+            
+        }
+
+        public void AddSkill(int id, List<string> value)
+        {
+            var index = _spies.IndexOf(_spies.FirstOrDefault(u => u.Id == id));
+            _spies[index].Skills.AddRange(value);
+
+        }
+    }
+
+   
     };
 
