@@ -7,5 +7,7 @@ namespace SpyDuh_Robin.Interfaces
         void Post(Spy spy);
 
         List<Spy> GetAll();
+
+        List<Spy> GetBySkill(string skill);
     }
 }

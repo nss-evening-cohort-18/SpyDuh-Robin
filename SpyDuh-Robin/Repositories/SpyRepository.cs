@@ -23,5 +23,12 @@ namespace SpyDuh_Robin.Repositories
         {
             return _spies;
         }
-    }
-}
+
+        public List<Spy> GetBySkill(string skill)
+        {
+            return _spies.Where(spySkill => spySkill.Skills.Contains(skill)).ToList();
+            
+            }
+        }
+    };
+
