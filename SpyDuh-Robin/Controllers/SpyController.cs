@@ -26,10 +26,10 @@ namespace SpyDuh_Robin.Controllers
         }
 
         // GET api/<SpyController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{skill}")]
+        public List<Spy> GetBySkill(string skill)
         {
-            return "value";
+            return _spy.GetBySkill(skill);
         }
 
         // POST api/<SpyController>
