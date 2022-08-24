@@ -20,9 +20,9 @@ namespace SpyDuh_Robin.Controllers
 
         // GET: api/<SpyController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Spy> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return _spy.GetAll();
         }
 
         // GET api/<SpyController>/5
@@ -36,6 +36,7 @@ namespace SpyDuh_Robin.Controllers
         [HttpPost]
         public void Post([FromBody] Spy spy)
         {
+           _spy.Post(spy);
         }
 
         // PUT api/<SpyController>/5

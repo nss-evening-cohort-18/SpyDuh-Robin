@@ -18,5 +18,10 @@ namespace SpyDuh_Robin.Repositories
         {
             _spies.Add(spy);
         }
+
+        public List<Spy> GetAll()
+        {
+            return _spies;
+        }
     }
 }
