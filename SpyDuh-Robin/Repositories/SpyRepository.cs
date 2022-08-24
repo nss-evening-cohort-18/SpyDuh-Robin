@@ -30,6 +30,11 @@ namespace SpyDuh_Robin.Repositories
 
         }
 
+        public List<Spy> GetByFriend(int friend)
+        {
+            return _spies.Where(spyFriend => spyFriend.Friends.Contains(friend)).ToList();
+        }
+
         public void AddService(int id, List<string> value)
         {
             var index = _spies.IndexOf(_spies.FirstOrDefault(u => u.Id == id));
