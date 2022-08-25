@@ -11,7 +11,7 @@ namespace SpyDuh_Robin.Repositories
             new Spy(2, "The Pink Panther", new (){"sleuthing", "stealing", "camoflauge", "stealth"}, new(){"stealing", "intimidation", "assassination", "movies"}, new(){1, 3}, new(){4, 5, 3}, "The Red Rose", "Steal from Detective Jacques Clouseau", new DateTime(2022, 10, 31 )),
             new Spy(3, "Jar Jar Binks", new (){"intelligence", "persuasion", "athleticism", "adaptability"}, new(){"assassination", "intimidation", "espionage", "double agent"}, new(){1, 3}, new(){4, 5}, "Jurassic Park", "Kill Emperor Palpatine", new DateTime(2023, 1, 1 )),
             new Spy(4, "James Bond", new (){"intelligence", "hiding", "accuracy", "bartending"}, new(){"assassination", "womanizer", "espionage", "blackmail"}, new(){5}, new(){1, 2, 3}, "MI-6", "Abduct and Impersonate the Leader of the Free World", new DateTime(2023, 1, 1 )),
-            new Spy(5, "Sirius Black", new (){"transfiguration", "spell casting", "defense against the dark arts", "stealth"}, new(){"espionage", "intimidation", "tracking", "blackmail"}, new(){4}, new(){1, 2, 3}, "The Order of the Phoenix", "Steal the Sword of Gryffindor from Bellatrix LeStrange", new DateTime(2022, 10, 31 ))
+            new Spy(5, "Sirius Black", new (){"transfiguration", "spell casting", "defense against the dark arts", "stealth"}, new(){"espionage", "intimidation", "tracking", "blackmail"}, new(){1, 2, 3}, new(){1, 2, 3}, "The Order of the Phoenix", "Steal the Sword of Gryffindor from Bellatrix LeStrange", new DateTime(2022, 10, 31 ))
         };
 
         public void Post(Spy spy)
@@ -50,6 +50,25 @@ namespace SpyDuh_Robin.Repositories
 
             return ContainsEnemies;
 
+        }
+
+        public List<Spy> GetByFriendofFriend(int friend) //enter 1
+        {
+            int index = _spies.IndexOf(_spies.FirstOrDefault(s => s.Id == friend)); //grabs person 1's friends, which are 2 & 3
+            List<int> SpyFriends = _spies[index].Friends; //contains 2 & 3
+            HashSet<int> FriendsofFriends = new HashSet<int>(); //should grab 1 & 3
+            foreach(Spy spy in _spies)
+            {
+                if (SpyFriends.Contains(spy.Id))
+                {
+                    foreach(int s in spy.Friends)
+                    {
+                        FriendsofFriends.Add(s); //added 1 & 3 to FriendsofFriends List
+                    }
+                }
+            }
+            List<Spy> FriendsofFriendsSpies = _spies.Where(spyFriend => FriendsofFriends.Contains(spyFriend.Id)).ToList();
+            return FriendsofFriendsSpies;
         }
         public void AddService(int id, List<string> value)
         {
