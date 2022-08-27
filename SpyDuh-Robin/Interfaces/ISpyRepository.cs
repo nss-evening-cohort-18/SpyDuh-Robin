@@ -19,6 +19,9 @@ namespace SpyDuh_Robin.Interfaces
         void AddSkill(int id, List<string> value);
 
         void AddService(int id,List<string> value);
+
+        string removeSkill(int id, string skill);
+        string removeService(int id, string service);
     }
 
 }

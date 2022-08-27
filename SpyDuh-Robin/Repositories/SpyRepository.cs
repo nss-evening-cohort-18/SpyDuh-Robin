@@ -1,5 +1,6 @@
 ﻿using SpyDuh_Robin.Interfaces;
 using SpyDuh_Robin.Models;
+using System.Net;
 
 namespace SpyDuh_Robin.Repositories
 {
@@ -26,6 +27,7 @@ namespace SpyDuh_Robin.Repositories
 
         public List<Spy> GetBySkill(string skill)
         {
+            skill = skill.ToLower();
             return _spies.Where(spySkill => spySkill.Skills.Contains(skill)).ToList();
 
         }
@@ -96,8 +98,30 @@ namespace SpyDuh_Robin.Repositories
             _spies[index].Skills.AddRange(value);
 
         }
-    }
 
-   
-    };
+        public string removeSkill(int id, string skill)
+        {
+            int index = _spies.IndexOf(_spies.FirstOrDefault(x => x.Id == id));
+            if (index == -1 || !_spies[index].Skills.Contains(skill)) {
+                //throw new StatusCodeException(HttpStatusCode.NotFound);
+                return "either the user or skill does not exist"; 
+            }
+            _spies[index].Skills.Remove(skill);
+            return "success";
+        }
+
+        public string removeService(int id, string service)
+        {
+            int index = _spies.IndexOf(_spies.FirstOrDefault(x => x.Id == id));
+            if (index == -1 || !_spies[index].Services.Contains(service))
+            {
+                //throw new StatusCodeException(HttpStatusCode.NotFound);
+                return "either the user or skill does not exist";
+            }
+            _spies[index].Services.Remove(service);
+            return "success";
+        }
+
+    }
+};
 

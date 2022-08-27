@@ -82,6 +82,17 @@ namespace SpyDuh_Robin.Controllers
             _spy.AddService(id, value);
         }
 
+        [HttpPut("{id}")]
+        public string removeSkill(int id, [FromBody] string skill)
+        {
+            return _spy.removeSkill(id,skill);
+        }
+
+        [HttpPut("{id}")]
+        public string removeService(int id, [FromBody] string service)
+        {
+            return _spy.removeService(id, service);
+        }
         // DELETE api/<SpyController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
