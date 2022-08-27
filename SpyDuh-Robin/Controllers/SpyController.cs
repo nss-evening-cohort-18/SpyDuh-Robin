@@ -7,7 +7,7 @@ using SpyDuh_Robin.Repositories;
 
 namespace SpyDuh_Robin.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class SpyController : ControllerBase
     {
@@ -23,6 +23,12 @@ namespace SpyDuh_Robin.Controllers
         public List<Spy> GetAll()
         {
             return _spy.GetAll();
+        }
+
+        [HttpGet("{agency}")]
+        public List<Spy> GetAgency(string agency)
+        {
+            return _spy.GetAgency(agency);
         }
 
         // GET api/<SpyController>/5

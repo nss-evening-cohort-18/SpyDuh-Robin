@@ -70,6 +70,11 @@ namespace SpyDuh_Robin.Repositories
             List<Spy> FriendsofFriendsSpies = _spies.Where(spyFriend => FriendsofFriends.Contains(spyFriend.Id)).ToList();
             return FriendsofFriendsSpies;
         }
+
+        public List<Spy> GetAgency(string agency)
+        {
+            return _spies.Where(spy => spy.AgencyName == agency).ToList();
+        }
         public void AddService(int id, List<string> value)
         {
             var index = _spies.IndexOf(_spies.FirstOrDefault(u => u.Id == id));

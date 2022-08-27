@@ -13,6 +13,7 @@ namespace SpyDuh_Robin.Interfaces
         List<Spy> GetByEnemy(int enemy);
 
         List<Spy> GetByFriendofFriend(int friend);
+        List<Spy> GetAgency(string agency);
 
         void AddSkill(int id, List<string> value);
 
