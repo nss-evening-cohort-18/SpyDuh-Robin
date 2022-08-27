@@ -75,6 +75,14 @@ namespace SpyDuh_Robin.Repositories
         {
             return _spies.Where(spy => spy.AgencyName == agency).ToList();
         }
+
+        public int GetByDueDate(int id)
+        {
+            var index = _spies.IndexOf(_spies.FirstOrDefault(s => s.Id == id));
+            var dueDate = _spies[index].AssignmentDueDate;
+            var currentDate = DateTime.Now;
+            return (int)(dueDate - currentDate).TotalDays;
+        }
         public void AddService(int id, List<string> value)
         {
             var index = _spies.IndexOf(_spies.FirstOrDefault(u => u.Id == id));

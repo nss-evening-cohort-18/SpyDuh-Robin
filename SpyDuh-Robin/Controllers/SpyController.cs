@@ -56,6 +56,12 @@ namespace SpyDuh_Robin.Controllers
             return _spy.GetByFriendofFriend(friend);
         }
 
+        [HttpGet("{id}")]
+        public int GetByDueDate(int id)
+        {
+            return _spy.GetByDueDate(id);
+        }
+
         // POST api/<SpyController>
         [HttpPost]
         public void Post([FromBody] Spy spy)
