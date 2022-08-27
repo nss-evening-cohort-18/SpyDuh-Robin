@@ -38,19 +38,19 @@ namespace SpyDuh_Robin.Controllers
             return _spy.GetBySkill(skill);
         }
 
-        [HttpGet("friend/{friend}")]
+        [HttpGet("{friend}")]
         public List<Spy> GetByFriends(int friend)
         {
             return _spy.GetByFriend(friend);
         }
 
-        [HttpGet("enemy/{enemy}")]
+        [HttpGet("{enemy}")]
         public List<Spy> GetByEnemy(int enemy)
         {
             return _spy.GetByEnemy(enemy);
         }
 
-        [HttpGet("friend/friend/{friend}")]
+        [HttpGet("{friend}")]
         public List<Spy> GetByFriendofFriend(int friend)
         {
             return _spy.GetByFriendofFriend(friend);
@@ -70,13 +70,13 @@ namespace SpyDuh_Robin.Controllers
         }
 
         // PUT api/<SpyController>/5
-        [HttpPut("skill/{id}")]
+        [HttpPut("{id}")]
         public void AddSkill(int id, [FromBody] List<string> value)
         {
             _spy.AddSkill(id, value);
         }
 
-        [HttpPut("service/{id}")]
+        [HttpPut("{id}")]
         public void AddService(int id, [FromBody] List<string> value)
         {
             _spy.AddService(id, value);
